@@ -129,11 +129,11 @@ function synthai_import_files() {
     array(
       'import_file_name'           => 'Synthai Default Demo',
       'categories'                 => array( 'Main Demo' ),
-      'import_file_url'            => 'https://softivuslab.com/wp/synthai/source/demo-data/synthai-content.xml', 
+      'import_file_url'            => 'https://softivus.com/wp/synthai/source/demo-data/synthai-content.xml', 
              
       'import_redux'               => array(
         array(
-          'file_url'               => 'https://softivuslab.com/wp/synthai/source/demo-data/synthai-options.json',
+          'file_url'               => 'https://softivus.com/wp/synthai/source/demo-data/synthai-options.json',
           'option_name'            => 'synthai_option',
         ),
       ),
