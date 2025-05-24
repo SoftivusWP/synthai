@@ -138,9 +138,9 @@ function synthai_import_files() {
         ),
       ),
 
-      'import_preview_image_url'   => 'https://softivuslab.com/wp/synthai/wp-content/uploads/2024/12/screenshot.png',
+      'import_preview_image_url'   => 'https://softivus.com/wp/synthai/wp-content/uploads/2025/05/screenshot.png',
      'import_notice'              => esc_html__( 'Caution: For importing demo data please click on "Import Demo Data" button. During demo data installation please do not refresh the page.', 'synthai' ),
-      'preview_url'                => 'https://softivuslab.com/wp/synthai/',     
+      'preview_url'                => 'https://softivus.com/wp/synthai/',     
     ),
 
   );
@@ -172,8 +172,7 @@ function synthai_after_import_setup($selected_import) {
   if ( class_exists( 'RevSlider' ) ) {
     $slider_array = array(
 
-      get_template_directory()."/inc/demo-data/sliders/healthy-slider.zip",  
-      get_template_directory()."/inc/demo-data/sliders/swimming-slider.zip",  
+      //get_template_directory()."/inc/demo-data/sliders/healthy-slider.zip",  
 
     );
     $slider = new RevSlider();

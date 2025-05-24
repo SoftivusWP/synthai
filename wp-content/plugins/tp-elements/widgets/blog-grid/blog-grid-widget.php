@@ -1718,7 +1718,7 @@ class Themephi_Elementor_Blog_Grid_Widget extends \Elementor\Widget_Base {
                         'label'     => esc_html__('Icon Color on Hover', 'tp-elements'),
                         'type'      => Controls_Manager::COLOR,
                         'selectors' => [
-                            '{{WRAPPER}}:hover .icon-container i' => 'color: {{VALUE}};'
+                            '{{WRAPPER}} .icon-container:hover i' => 'color: {{VALUE}};'
                         ],
                         'condition' => [
                             'icon_type' => 'default'
@@ -1764,7 +1764,7 @@ class Themephi_Elementor_Blog_Grid_Widget extends \Elementor\Widget_Base {
                         'label'     => esc_html__('Icon Color on Hover', 'tp-elements'),
                         'type'      => Controls_Manager::COLOR,
                         'selectors' => [
-                            '{{WRAPPER}}:hover .icon-container .icon svg' => 'fill: {{VALUE}};'
+                            '{{WRAPPER}} .icon-container:hover .icon svg' => 'fill: {{VALUE}};'
                         ],
                         'condition' => [
                             'icon_type' => 'svg'
@@ -1778,7 +1778,7 @@ class Themephi_Elementor_Blog_Grid_Widget extends \Elementor\Widget_Base {
                         'label'     => esc_html__('Background SVG on Hover', 'tp-elements'),
                         'type'      => Controls_Manager::COLOR,
                         'selectors' => [
-                            '{{WRAPPER}}:hover .icon-container .background svg' => 'fill: {{VALUE}};'
+                            '{{WRAPPER}} .icon-container:hover .background svg' => 'fill: {{VALUE}};'
                         ],
                         'condition' => [
                             'background_type' => 'svg'
@@ -1786,14 +1786,12 @@ class Themephi_Elementor_Blog_Grid_Widget extends \Elementor\Widget_Base {
                     ]
                 );
 
-                $this->add_control(
-                    'background_normal_color_hover',
+                $this->add_group_control(
+                    Group_Control_Background::get_type(),
                     [
-                        'label'     => esc_html__('Background Color on Hover', 'tp-elements'),
-                        'type'      => Controls_Manager::COLOR,
-                        'selectors' => [
-                            '{{WRAPPER}}:hover .icon-container' => 'background: {{VALUE}};'
-                        ],
+                        'name' => 'background_normal_color_hover',
+                        'types' => [ 'classic', 'gradient', 'video' ],
+                        'selector' => '{{WRAPPER}} .icon-container:hover',
                         'condition' => [
                             'background_type' => 'color'
                         ]

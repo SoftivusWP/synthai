@@ -2,7 +2,7 @@
 *
 * --------------------------------------------------------------------
 *
-* Template : synthai - Event & Conference WordPress Theme
+* Template : Synthai - AI Agency & Technology WordPress Theme
 
 * --------------------------------------------------------------------
 *

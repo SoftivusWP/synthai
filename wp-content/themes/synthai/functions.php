@@ -422,7 +422,7 @@ if ( !function_exists('tp_get_all_post_list') ) {
                 }
             } else {
                 $post_list = array(
-                    'no_posts' => esc_html__('No Posts Were Found', 'neuros')
+                    'no_posts' => esc_html__('No Posts Were Found', 'synthai')
                 );
             }
         }

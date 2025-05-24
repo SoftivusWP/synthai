@@ -60,7 +60,7 @@ $tp_audio_format_sign_image = get_post_meta(get_the_ID(), 'tp_audio_format_sign_
         </div>
     </div>
     <?php else : ?>
-    <div class="tp-portfolio-item position-relative">
+    <div class="tp-portfolio-item position-relative overflow-hidden">
         <div class="tp_elements-icon-widget d-inline-block position-absolute end-0" >
 
             <?php 
