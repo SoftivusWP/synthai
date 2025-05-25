@@ -2488,8 +2488,8 @@ body.search{
     input {
         border: 0;
         height: 55px;
-        background: #f6f6f6;
-        color: #444444;
+        background: #242424;
+        color: #C4C5C0;
         padding: 0 45px 0 20px;
         width: 100%;
         border-radius: 5px;
@@ -2790,12 +2790,12 @@ li.category-name ul.post-categories:before {
 body.search-results {
     .site-main {
         > article {
-            background: #fff;                 
+            background: #171717;                 
             margin-bottom: 40px;
-            border: 1px solid #ececec;            
+            border: 1px solid transparent;            
             padding: 35px 35px;
             margin-right: 20px;
-            border-radius: 0px;
+            border-radius: 12px;
             box-shadow: none;
             .entry-title {
                 padding: 0;
