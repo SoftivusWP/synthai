@@ -169,33 +169,4 @@ backdrop-filter: blur(0px);
 -webkit-backdrop-filter: blur(0px);
 }
 
-.tp-breadcrumb-title-abs {
-    position: relative;
-    z-index: 1;
-    &::after {
-        position: absolute;
-        left: 100%;
-        bottom: 0;
-        border-top-right-radius: 0px;
-        background-color: transparent;
-        z-index: 3;
-        content: "";
-        width: 12px;
-        height: 30px;
-        border-bottom-left-radius: 10px;
-        box-shadow: 0px 12px 0 0 #121212;
-    }
-    &::before {
-        position: absolute;
-        right: 99%;
-        bottom: 0;
-        border-top-right-radius: 0px;
-        background-color: transparent;
-        z-index: 3;
-        content: "";
-        width: 12px;
-        height: 30px;
-        border-bottom-right-radius: 10px;
-        box-shadow: 0px 12px 0 0 #121212;
-    }
-}
+

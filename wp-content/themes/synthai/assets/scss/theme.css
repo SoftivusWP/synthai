@@ -5518,37 +5518,6 @@ a.wc-block-components-product-name {
   -webkit-backdrop-filter: blur(0px);
 }
 
-.tp-breadcrumb-title-abs {
-  position: relative;
-  z-index: 1;
-}
-.tp-breadcrumb-title-abs::after {
-  position: absolute;
-  left: 100%;
-  bottom: 0;
-  border-top-right-radius: 0px;
-  background-color: transparent;
-  z-index: 3;
-  content: "";
-  width: 12px;
-  height: 30px;
-  border-bottom-left-radius: 10px;
-  box-shadow: 0px 12px 0 0 #121212;
-}
-.tp-breadcrumb-title-abs::before {
-  position: absolute;
-  right: 99%;
-  bottom: 0;
-  border-top-right-radius: 0px;
-  background-color: transparent;
-  z-index: 3;
-  content: "";
-  width: 12px;
-  height: 30px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 0px 12px 0 0 #121212;
-}
-
 /* -----------------------------------
     01. General CSS
 -------------------------------------*/
@@ -6737,9 +6706,37 @@ a:hover, a:active {
 .themephi-breadcrumbs .breadcrumbs-inner .tp-breadcrumb-title-abs {
   background-color: #121212;
   padding: 7px 35px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   border-radius: 10px 10px 0 0;
   display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.themephi-breadcrumbs .breadcrumbs-inner .tp-breadcrumb-title-abs::after {
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+  border-top-right-radius: 0px;
+  background-color: transparent;
+  z-index: 3;
+  content: "";
+  width: 12px;
+  height: 30px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0px 12px 0 0 #121212;
+}
+.themephi-breadcrumbs .breadcrumbs-inner .tp-breadcrumb-title-abs::before {
+  position: absolute;
+  right: 99%;
+  bottom: 0;
+  border-top-right-radius: 0px;
+  background-color: transparent;
+  z-index: 3;
+  content: "";
+  width: 12px;
+  height: 30px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 12px 0 0 #121212;
 }
 .themephi-breadcrumbs .breadcrumbs-inner .banner-desc {
   margin-top: 10px;
