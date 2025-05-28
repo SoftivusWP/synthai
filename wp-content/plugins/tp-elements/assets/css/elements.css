@@ -7359,22 +7359,22 @@ tp-grid-figure .logo-img.logo-gray a:hover img {
 
 .entry-content li.wc-block-grid__product .wc-block-grid__product-title {
   font-size: 17px;
-  color: #050504;
+  color: var(--titleColor);
   margin-top: 10px;
 }
 .entry-content li.wc-block-grid__product .wc-block-grid__product-price.price {
   font-size: 14px;
-  color: #050504;
+  color: var(--titleColor);
 }
 .entry-content li.wc-block-grid__product .add_to_cart_button {
   display: inline-block;
   border-radius: 0px;
-  color: #050504 !important;
+  color: var(--titleColor) !important;
   background: transparent;
   padding: 5px 20px;
   font-size: 16px;
   font-weight: 500;
-  border: 1px solid #ececec;
+  border: 1px solid #242424;
 }
 .entry-content li.wc-block-grid__product .add_to_cart_button:hover {
   background: var(--primaryColor);

@@ -101,7 +101,7 @@ function my_theme_register_required_plugins()
 		array(
 			'name'               => 'TP Elements', // The plugin name.
 			'slug'               => 'tp-elements', // The plugin slug (typically the folder name).
-			'source'             => 'https://softivuslab.com/wp/synthai/source/plugins/tp-elements.zip', // The plugin source.
+			'source'             => 'https://softivus.com/wp/synthai/source/plugins/tp-elements.zip', // The plugin source.
 			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
 			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -113,7 +113,7 @@ function my_theme_register_required_plugins()
 		array(
 			'name'               => 'TP Framework', // The plugin name.
 			'slug'               => 'tp-framework', // The plugin slug (typically the folder name).
-			'source'             => 'https://softivuslab.com/wp/synthai/source/plugins/tp-framework.zip', // The plugin source.
+			'source'             => 'https://softivus.com/wp/synthai/source/plugins/tp-framework.zip', // The plugin source.
 			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
 			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.

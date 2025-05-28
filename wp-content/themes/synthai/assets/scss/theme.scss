@@ -1241,7 +1241,7 @@ a:hover,  a:active {
     }
 
     .breadcrumbs-inner{
-        
+
         .tp-breadcrumb-title-abs {
             background-color: #121212;
             padding: 7px 35px;
@@ -1265,7 +1265,7 @@ a:hover,  a:active {
             }
             &::before { 
                 position: absolute;
-                right: 99%;
+                right: 100%;
                 bottom: 0;
                 border-top-right-radius: 0px;
                 background-color: transparent;
