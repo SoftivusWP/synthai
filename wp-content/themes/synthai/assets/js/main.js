@@ -128,7 +128,7 @@
             $(".nav-toggle, .off-nav-layer, .menu-ofcn, .close-button, body").toggleClass("off-open");
         });    
 
-        $(window).resize(resizeNav);
+        $(window).on('resize', resizeNav);
         resizeNav();
 
 
