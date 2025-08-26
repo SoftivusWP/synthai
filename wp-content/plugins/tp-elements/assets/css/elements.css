@@ -7369,7 +7369,7 @@ tp-grid-figure .logo-img.logo-gray a:hover img {
 .entry-content li.wc-block-grid__product .add_to_cart_button {
   display: inline-block;
   border-radius: 0px;
-  color: var(--titleColor) !important;
+  color: var(--titleColor);
   background: transparent;
   padding: 5px 20px;
   font-size: 16px;

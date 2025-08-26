@@ -7,10 +7,32 @@ function synthai_custom_colors() {
 global $synthai_option;	
 /***styling options
 ------------------*/
-	if(!empty($synthai_option['body_bg_color']))
-	{
-	 $body_bg          = $synthai_option['body_bg_color'];
-	}
+	// Get selected theme mode (default = light)
+    $theme_mode = isset($synthai_option['theme_mode']) ? $synthai_option['theme_mode'] : 'light';
+    // Get correct background color based on mode
+    if ( $theme_mode === 'dark' && !empty($synthai_option['body_bg_color_dark']) ) {
+        $body_bg = $synthai_option['body_bg_color_dark'];
+		$breadcrumb_bg = !empty($synthai_option['breadcrumb_bg_color_dark']) ? $synthai_option['breadcrumb_bg_color_dark'] : '#121212';
+		$body_title_color = !empty($synthai_option['body_title_color_dark']) ? $synthai_option['body_title_color_dark'] : '#F2F1F6';
+		$body_text_color = !empty($synthai_option['body_text_color_dark']) ? $synthai_option['body_text_color_dark'] : '#C4C5C0';
+		$element_bg = !empty($synthai_option['element_bg_color_dark']) ? $synthai_option['element_bg_color_dark'] : '#171717';
+		$input_bg = !empty($synthai_option['input_bg_color_dark']) ? $synthai_option['input_bg_color_dark'] : '#242424';
+    } elseif ( $theme_mode === 'light' && !empty($synthai_option['body_bg_color']) ) {
+        $body_bg = $synthai_option['body_bg_color'];
+		$breadcrumb_bg = !empty($synthai_option['breadcrumb_bg_color']) ? $synthai_option['breadcrumb_bg_color'] : '#ffffff';
+		$body_title_color = !empty($synthai_option['body_title_color']) ? $synthai_option['body_title_color'] : '#121212';
+		$body_text_color = !empty($synthai_option['body_text_color']) ? $synthai_option['body_text_color'] : '#242424';
+		$element_bg = !empty($synthai_option['element_bg_color']) ? $synthai_option['element_bg_color'] : '#f9f9f9';
+		$input_bg = !empty($synthai_option['input_bg_color']) ? $synthai_option['input_bg_color'] : '#f2f2f2';
+    } else {
+        // fallback defaults
+        $body_bg = ($theme_mode === 'dark') ? '#121212' : '#ffffff';
+		$breadcrumb_bg = !empty($synthai_option['breadcrumb_bg_color']) ? $synthai_option['breadcrumb_bg_color'] : '#ffffff';
+		$body_title_color = !empty($synthai_option['body_title_color']) ? $synthai_option['body_title_color'] : '#121212';
+		$body_text_color = !empty($synthai_option['body_text_color']) ? $synthai_option['body_text_color'] : '#242424';
+		$element_bg = !empty($synthai_option['element_bg_color']) ? $synthai_option['element_bg_color'] : '#f9f9f9';
+		$input_bg = !empty($synthai_option['input_bg_color']) ? $synthai_option['input_bg_color'] : '#f2f2f2';
+    }
 
 	$site_color       = !empty($synthai_option['primary_color']) ? $synthai_option['primary_color'] : '';
 	$secondary_color  = !empty($synthai_option['secondary_color']) ? $synthai_option['secondary_color'] : '';	
@@ -110,19 +132,16 @@ global $synthai_option;
 	if(!empty($synthai_option['opt-typography-6']['line-height'])) {
 		$h6_typography_line_height = $synthai_option['opt-typography-6']['line-height'];
 	}
-	
 
-$body_color  = !empty($synthai_option['body_text_color']) ? $synthai_option['body_text_color'] : '' ;	?>
+?>
 
 <!-- Typography -->
-<?php if(!empty($body_color)){
-	global $synthai_option;
-?>
+
 <style>	
 
 	body{
 		background:<?php echo sanitize_hex_color($body_bg); ?>;
-		color:<?php echo sanitize_hex_color($body_color); ?> !important;
+		color:<?php echo sanitize_hex_color($body_text_color); ?> !important;
 		<?php if(!empty($body_typography_font)){ ?>
 			font-family: <?php echo esc_attr($body_typography_font);?> !important;   
 		<?php } ?> 
@@ -133,7 +152,7 @@ $body_color  = !empty($synthai_option['body_text_color']) ? $synthai_option['bod
 		<?php if(!empty($h1_typography_color)) { ?>
 			 color: <?php echo sanitize_hex_color($h1_typography_color);?>;
 		<?php
-	 }?>
+	 	}?>
 		<?php if(!empty($h1_typography_font_family)){ ?>
 			font-family: <?php echo esc_attr($h1_typography_font_family);?>;   
 		<?php } ?>
@@ -145,13 +164,13 @@ $body_color  = !empty($synthai_option['body_text_color']) ? $synthai_option['bod
 		
 		<?php if(!empty($h1_typography_line_height)){
 		?>
-			line-height:<?php echo esc_attr($h1_typography_line_height);?>;
+			line-height:<?php echo esc_attr($h1_typography_line_height); ?>;
 		<?php }?>		
 	}
 	h2{
 		color:<?php echo sanitize_hex_color($h2_typography_color);?>;
 		<?php if(!empty($h2_typography_font_family)){ ?>
-			font-family: <?php echo esc_attr($h2_typography_font_family);?> !important;   
+			font-family: <?php echo esc_attr($h2_typography_font_family); ?> !important;   
 		<?php } ?> 
 		font-size:<?php echo esc_attr($h2_typography_font_fsize);?>;
 		<?php if(!empty($h2_typography_font_weight)){
@@ -161,7 +180,7 @@ $body_color  = !empty($synthai_option['body_text_color']) ? $synthai_option['bod
 		
 		<?php if(!empty($h2_typography_line_height)){
 		?>
-			line-height:<?php echo esc_attr($h2_typography_line_height);?>
+			line-height:<?php echo esc_attr($h2_typography_line_height); ?>
 		<?php }?>
 	}
 	h3{
@@ -242,6 +261,36 @@ $body_color  = !empty($synthai_option['body_text_color']) ? $synthai_option['bod
 		--primaryColor: <?php echo sanitize_hex_color($site_color);?> !important;
 		--secondaryColor: <?php echo sanitize_hex_color($secondary_color);?> !important;
 	} 
+
+	.themephi-breadcrumbs .breadcrumbs-title span a span, .themephi-sideabr .widget_block label.wp-block-search__label, .themephi-sideabr .widget_block h2, .themephi-sideabr .widget-title, .themephi-sideabr .recent-post-widget .post-desc a, .themephi-breadcrumbs .breadcrumbs-title span a::before, h1, h2, h3, h4, h5, h6, .woocommerce-Address-title.title h2, .woocommerce-MyAccount-content h2, .woocommerce h2, .wp-block-heading, .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product p.price, .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product span.price, .woocommerce div.product form.cart .button, .entry-content li.wc-block-grid__product .wc-block-grid__product-title, .entry-content li.wc-block-grid__product .add_to_cart_button, .woocommerce-MyAccount-navigation ul li a, .woocommerce-MyAccount-navigation ul li.is-active a, .woocommerce-MyAccount-navigation ul li:hover a, .bs-desc h2, .bs-desc h3, .bs-desc h4, .bs-desc h5, .bs-desc h6, .themephi-blog-details #reply-title, .comments-title, .team-info-wrapp .heading, .tp-team-infos .team-details-info-title, .social-follows label, .tp-portfolio-inner-content-text-title, .tp-portfolio-inner-side-single .tp-portfolio-inner-side-title, .service-navigation .title, .product_title.entry-title, .woocommerce-Tabs-panel h2, .related.products h2, .woocommerce-loop-product__title, .woocommerce-Reviews-title, .page-title, .tp-portfolio-inner-content-text-wrapper .tp-portfolio-inner-content-text-title, body.search-results .site-main > article .entry-title a, .woocommerce .quantity .qty, .sidenav .widget_nav_menu ul li a, #mobile_menu .submenu-button::after {
+		color: <?php echo esc_attr($body_title_color); ?>;
+	}
+
+	.single-post .themephi-blog-details .type-post .single-content-full .user-info .single-info i, .single-post .themephi-blog-details .type-post .single-content-full .user-info .single-info a, .themephi-blog-details .bs-info.tags, .themephi-sideabr .recent-post-widget .post-desc span, .themephi-sideabr .recent-post-widget .post-desc span i, .themephi-sideabr ul a, .themephi-sideabr .tagcloud a, .themephi-blog-details .bs-info.tags a, .widget_tp_all_post_types_categories .themephi-all-categories-wrapper ul li a, .themephi-sideabr .widget_search input, .themephi-sideabr .bs-search input, .logged-in-as a, .pagination-area .nav-links a, .product_meta span.tagged_as a, .product_meta span.posted_in a, .woocommerce ul.products li.product .price, .entry-content li.wc-block-grid__product .wc-block-grid__product-price.price, .wp-block-button .wp-block-button__link, .woocommerce a, mark, ins, .woocommerce-error, .woocommerce-info, .woocommerce-message, input[type="text"]::placeholder, input[type="number"]::placeholder, input[type="password"]::placeholder, textarea::placeholder, input[type="email"]::placeholder, .woocommerce form .form-row input.input-text, .woocommerce form .form-row select, .select2-container--default .select2-selection--single .select2-selection__placeholder, .tp-synthai-shop-top-portion select, select:valid, .bs-search input, .description-informations-label-value span strong, .blog .themephi-blog .blog-item .full-blog-content .title-wrap .blog-title a, .archive .themephi-blog .blog-item .full-blog-content .title-wrap .blog-title a, input[type="text"], input[type="number"], input[type="password"], textarea, input[type="email"], blockquote p, body .wp-block-quote.is-style-large:not(.is-style-plain) p {
+		color: <?php echo esc_attr($body_text_color); ?>;
+	}
+
+	.themephi-sideabr .widget, .comments-area p.comment-form-comment textarea, .tp-synthai-shop-top-portion, .tp-synthai-shop-top-portion select, .menu-wrap-off {
+		background: <?php echo esc_attr($element_bg); ?>;
+	}
+
+	.widget_themephi_soical_widget ul.footer_social li > a, .themephi-sideabr .widget_search input, .themephi-sideabr .bs-search input, .widget_tp_all_post_types_categories .themephi-all-categories-wrapper ul li a, .comments-area p.comment-form-comment textarea, .woocommerce .quantity .qty, .woocommerce div.product form.cart .button, .woocommerce-MyAccount-navigation ul li, .woocommerce-MyAccount-navigation ul li.is-active, .woocommerce-MyAccount-navigation ul li:hover, .woocommerce-MyAccount-navigation ul li:last-child, .woocommerce form .form-row .select2-container--default .select2-selection--single, .woocommerce form .form-row input.input-text, .woocommerce form .form-row select, .tp-synthai-shop-top-portion select, .sidenav .widget_nav_menu ul li a, .sidenav .widget_nav_menu ul li:last-child a {
+		border-color: <?php echo esc_attr($input_bg); ?>;
+	}
+	
+	.themephi-sideabr ul a, .themephi-sideabr .tagcloud a, .themephi-blog-details .bs-info.tags a, .themephi-sideabr .widget_search input, .themephi-sideabr .bs-search input, .widget_tp_all_post_types_categories .themephi-all-categories-wrapper ul li a, .product_meta span.posted_in a, .woocommerce #review_form #respond textarea, .woocommerce-error, .woocommerce-info, .woocommerce-message, .woocommerce-MyAccount-navigation ul li.is-active, .woocommerce-MyAccount-navigation ul li:hover, .woocommerce form .form-row input.input-text, .woocommerce form .form-row select, .woocommerce form .form-row .select2-container--default .select2-selection--single, input[type="text"], input[type="number"], input[type="email"], input[type="url"], select, input[type="password"], .comments-area p.comment-form-author input, .comments-area p.comment-form-email input, .bs-search input {
+		background: <?php echo esc_attr($input_bg); ?>;
+	}
+
+	<?php if( !empty( $breadcrumb_bg ) ) : ?>
+	.themephi-breadcrumbs .breadcrumbs-inner .tp-breadcrumb-title-abs {
+		
+		background-color: <?php echo esc_attr($breadcrumb_bg); ?>;
+	}
+	.themephi-breadcrumbs .breadcrumbs-inner .tp-breadcrumb-title-abs::before, .themephi-breadcrumbs .breadcrumbs-inner .tp-breadcrumb-title-abs::after {
+		box-shadow: 0px 12px 0 0 <?php echo esc_attr($breadcrumb_bg); ?>;
+	}
+	<?php endif; ?>
 	
 	<?php if( !empty( $synthai_option['breadcrumb_top_gap'] ) ) : ?>
 		.themephi-breadcrumbs .breadcrumbs-inner { 
@@ -296,15 +345,15 @@ $body_color  = !empty($synthai_option['body_text_color']) ? $synthai_option['bod
 		}
 	<?php endif; ?>
 	
-	<?php if(!empty($synthai_option['body_bg_color'])) : ?>
+	<?php if(!empty($body_bg)) : ?>
 		body.archive.tax-product_cat{
-			background: <?php echo sanitize_hex_color($synthai_option['body_bg_color']); ?> !important;  
+			background: <?php echo sanitize_hex_color($body_bg); ?> !important;  
 		}
 	<?php endif; ?>
 </style>
 
 <?php
-	}
+
 	 
 	if(is_home() && !is_front_page() || is_home() && is_front_page()){
 		$padding_top        = get_post_meta(get_queried_object_id(), 'content_top', true);

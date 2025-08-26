@@ -17,6 +17,9 @@ function synthai_scripts() {
 	if ( is_rtl() ) {
 		wp_enqueue_style(  'synthai-rtl',  get_template_directory_uri().'/assets/scss/rtl.css' );		
 	}
+	if ( $synthai_option['theme_mode'] === 'dark' ) {
+	wp_enqueue_style( 'dark-style', get_template_directory_uri() . '/assets/scss/dark.css' );
+	} 
 	wp_enqueue_style( 'synthai-style', get_stylesheet_uri() );	
 		
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.8.3.min.js', array('jquery'), '2.8.3', true );

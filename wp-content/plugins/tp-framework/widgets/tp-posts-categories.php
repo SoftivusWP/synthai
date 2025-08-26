@@ -33,7 +33,7 @@ class TP_All_Post_Types_Categories extends WP_Widget {
 
             $categories = get_terms(array(
                 'taxonomy' => $taxonomy,
-                'hide_empty' => false,
+                'hide_empty' => true,
             ));
 
             if (!empty($categories) && !is_wp_error($categories)) {

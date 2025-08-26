@@ -31,11 +31,12 @@
         $sticky             = !empty($hyperai_option['off_sticky']) ? $hyperai_option['off_sticky'] : ''; 
         $sticky_menu        = ($sticky == 1) ? ' menu-sticky' : '';   
     ?>
+
     <div id="page" class="site <?php echo esc_attr( $gap );?> <?php echo esc_attr($extrapadding);?>">
     <?php  get_template_part('inc/header/search'); get_template_part('inc/header/off-canvas'); ?>
     	<header id="themephi-header" class="header-style-1  mainsmenu <?php echo $fixed_header ;?>">   
 	     
-	    <div class="header-inner<?php echo esc_attr($sticky_menu);?>">
+	<div class="header-inner<?php echo esc_attr($sticky_menu);?>">
        <?php 
 
 		if( is_404() ){
@@ -45,6 +46,7 @@
 		} ?>
         </div>
     </header>
+
     <?php get_template_part( 'inc/breadcrumbs' );  ?>
         <?php 
             $page_bg = get_post_meta(get_the_ID(), 'page_bg', true);

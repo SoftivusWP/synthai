@@ -6,6 +6,7 @@
 * Template : Synthai - AI Agency & Technology WordPress Theme
 * Author : Softivus
 * Author URI : http://www.softivus.com/
+* Version: 1.0.0
 *
 * -----------------------------------------------------------------------------
 *
@@ -41,19 +42,21 @@
 :root{
     --bodyFont: "Ubuntu", serif;
     --titleFont: "Ubuntu", serif;
+    --body_bg_color: #ffffff;
     --primaryColor: #D5313D;
     --secondaryColor: #242424;
     --commonBlack: #171717;
     --commonWhite: #F2F1F6;
-    --titleColor: #F2F1F6;
-    --bodyColor: #C4C5C0;
-    --menuColor: #F2F1F6;
+    --titleColor: #121212;
+    --bodyColor: #242424;
+    --menuColor: #242424;
     --btnColor: #ffffff;
-    --linkColor: #ffffff;
+    --linkColor: #242424;
     --hoverColor: #D5313D;
-    --globalColor: #C4C5C0;
+    --globalColor: #242424;
     --formBg: #C4C5C0;
     --transition: all 0.5s ease-in-out;
+
 }
 
 
@@ -580,7 +583,7 @@ ul.check-square{
 }
 body.page{
     blockquote.style2{
-        background: #fff !important;
+        background: var(--body_bg_color) !important;
         padding: 34px 40px 25px;
         margin-bottom: 10px !important;
         &:before{

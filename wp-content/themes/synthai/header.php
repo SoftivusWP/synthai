@@ -30,6 +30,7 @@
     <?php        
         $extrapadding = !empty($synthai_option['show_call_btns']) ? '' : 'lesspadding';      
     ?>
+
     <div id="page" class="site <?php echo esc_attr( $gap );?> <?php echo esc_attr($extrapadding);?>">
         <?php
             get_template_part('inc/header/header'); 

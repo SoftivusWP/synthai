@@ -296,78 +296,6 @@ class Themephi_Elementor_How_Works_Widget extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        // $this->start_controls_section(
-		// 	'style_tab_number',
-		// 	[
-		// 		'label' => esc_html__( 'Tab Number', 'tp-elements' ),
-		// 		'tab'   => Controls_Manager::TAB_STYLE,
-		// 	]
-		// );
-        
-        // $this->add_responsive_control(
-		// 	'tab_number_margin',
-		// 	[
-		// 		'label'      => esc_html__( 'Margin', 'tp-elements' ),
-		// 		'type'       => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', '%' ],
-		// 		'selectors'  => [
-		// 			'{{WRAPPER}} .tp-rep-num '      => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-        
-        // $this->add_responsive_control(
-		// 	'tab_number_padding',
-		// 	[
-		// 		'label'      => esc_html__( 'Padding', 'tp-elements' ),
-		// 		'type'       => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', '%' ],
-		// 		'selectors'  => [
-		// 			'{{WRAPPER}} .tp-rep-num '      => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	Group_Control_Typography::get_type(),
-		// 	[
-		// 		'name'     => 'tab_number_typo',
-		// 		'selector' => '{{WRAPPER}} .tp-rep-num',
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	Group_Control_Background::get_type(),
-		// 	[
-		// 		'name'     => 'tab_number_bg',
-		// 		'types'    => [ 'classic', 'gradient' ],
-		// 		'exclude'  => [ 'image' ],
-		// 		'selector' => '{{WRAPPER}} .tp-rep-num',
-		// 	]
-		// );
-
-		// $this->add_group_control(
-		// 	Group_Control_Border::get_type(),
-		// 	[
-		// 		'name'     => 'tab_number_border',
-		// 		'selector' => '{{WRAPPER}} .tp-rep-num',
-		// 	]
-		// );
-
-		// $this->add_responsive_control(
-		// 	'tab_number_border_radius',
-		// 	[
-		// 		'label'      => esc_html__( 'Border Radius', 'tp-elements' ),
-		// 		'type'       => Controls_Manager::DIMENSIONS,
-		// 		'size_units' => [ 'px', '%' ],
-		// 		'selectors'  => [
-		// 			'{{WRAPPER}} .tp-rep-num'      => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		// 		],
-		// 	]
-		// );
-
-        // $this->end_controls_section();
-
         // ----------------------------------- //
         // ---------- Item Settings ---------- //
         // ----------------------------------- //
@@ -537,6 +465,17 @@ class Themephi_Elementor_How_Works_Widget extends \Elementor\Widget_Base {
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} .col-custom.active .tp-rep-title' => 'color: {{VALUE}};'
+                    ],
+                ]
+            );
+
+            $this->add_control(
+                'item_text_desc_color_active',
+                [
+                    'label'     => esc_html__('Description Color', 'tp-elements'),
+                    'type'      => Controls_Manager::COLOR,
+                    'selectors' => [
+                        '{{WRAPPER}} .col-custom.active .tp-rep-des' => 'color: {{VALUE}};'
                     ],
                 ]
             );

@@ -1461,7 +1461,7 @@ class Themephi_Portfolio_Slider_Widget extends \Elementor\Widget_Base {
                 'label'     => esc_html__('Title Color', 'tp-elements'),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .tp-portfolio-title' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .tp-portfolio-title a' => 'color: {{VALUE}};'
                 ]
             ]
         );

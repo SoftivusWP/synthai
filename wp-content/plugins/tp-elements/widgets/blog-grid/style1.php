@@ -16,6 +16,12 @@
 
                     <?php if(($settings['blog_meta_show_hide'] == 'yes') ){ ?>
                     <div class="blog-meta-abs d-inline-block">	
+                        <?php
+                        if (!empty($settings['enable_decoration_meta']) && !empty($settings['add_decoration_meta'])) { 
+                            foreach ( $settings['add_decoration_meta'] as $item ) {
+                                echo '<strong class="tp-border-decoration-meta-' . $item . ' "></strong>';
+                            }
+                        } ?>
                         <?php if(($settings['blog_date_show_hide'] == 'yes') ){ ?>						
                             <span class="meta_date"><?php echo esc_html( $full_date ); ?></span>						
                         <?php } ?>

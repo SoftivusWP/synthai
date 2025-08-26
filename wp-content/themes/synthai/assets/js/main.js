@@ -10,6 +10,7 @@
 
 (function($) {
     "use strict";
+    
     // sticky menu
     var header = $('.menu-sticky');
     var win = $(window);

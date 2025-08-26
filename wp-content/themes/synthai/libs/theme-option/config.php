@@ -267,12 +267,54 @@ Redux::setSection(
         'fields' => array(
 
             array(
+                'id'        => 'theme_mode',
+                'type'    => 'select',
+                'title'    => esc_html__('Switch Theme Mode', 'synthai'),
+                'default'  => 'light',
+                'options' => array(
+                    'light' => __( 'Light Mode', 'synthai' ),
+                    'dark'   => __( 'Dark Mode', 'synthai' ),
+                ),
+            ),
+
+            array(
                 'id'        => 'body_bg_color',
                 'type'      => 'color',
-                'title'     => esc_html__('Body Backgroud Color', 'synthai'),
+                'title'     => esc_html__('Body Background Color', 'synthai'),
                 'subtitle'  => esc_html__('Pick body background color', 'synthai'),
+                'default'   => '#ffffff',
+                'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'light'),
+            ),
+
+            array(
+                'id'        => 'body_bg_color_dark',
+                'type'      => 'color',
+                'title'     => esc_html__('Body Background Color (Dark)', 'synthai'),
+                'subtitle'  => esc_html__('Pick body background color for dark mode', 'synthai'),
                 'default'   => '#121212',
                 'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'dark'),
+            ),
+
+            array(
+                'id'        => 'body_title_color',
+                'type'      => 'color',
+                'title'     => esc_html__('Title Color', 'synthai'),
+                'subtitle'  => esc_html__('Pick text color', 'synthai'),
+                'default'   => '#121212',
+                'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'light'), 
+            ),
+
+            array(
+                'id'        => 'body_title_color_dark',
+                'type'      => 'color',
+                'title'     => esc_html__('Title Color (Dark)', 'synthai'),
+                'subtitle'  => esc_html__('Pick text color', 'synthai'),
+                'default'   => '#F2F1F6',
+                'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'dark'), 
             ),
 
             array(
@@ -280,8 +322,19 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Text Color', 'synthai'),
                 'subtitle'  => esc_html__('Pick text color', 'synthai'),
+                'default'   => '#242424',
+                'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'light'), 
+            ),
+
+            array(
+                'id'        => 'body_text_color_dark',
+                'type'      => 'color',
+                'title'     => esc_html__('Text Color (Dark)', 'synthai'),
+                'subtitle'  => esc_html__('Pick text color', 'synthai'),
                 'default'   => '#C4C5C0',
                 'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'dark'), 
             ),
 
             array(
@@ -299,7 +352,7 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Secondary Color', 'synthai'),
                 'subtitle'  => esc_html__('Select Secondary Color.', 'synthai'),
-                'default'   => '#3A6BB6',
+                'default'   => '#242424',
                 'validate'  => 'color',
             ),
 
@@ -308,7 +361,7 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Link Color', 'synthai'),
                 'subtitle'  => esc_html__('Pick Link color', 'synthai'),
-                'default'   => '#F2F1F6',
+                'default'   => '#242424',
                 'validate'  => 'color',
             ),
 
@@ -319,6 +372,46 @@ Redux::setSection(
                 'subtitle'  => esc_html__('Pick link hover color', 'synthai'),
                 'default'   => '#D5313D',
                 'validate'  => 'color',
+            ),
+
+            array(
+                'id'        => 'element_bg_color',
+                'type'      => 'color',
+                'title'     => esc_html__('Element Background Color', 'synthai'),
+                'subtitle'  => esc_html__('Pick body background color', 'synthai'),
+                'default'   => '#f9f9f9',
+                'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'light'),
+            ),
+
+            array(
+                'id'        => 'element_bg_color_dark',
+                'type'      => 'color',
+                'title'     => esc_html__('Element Background Color (Dark)', 'synthai'),
+                'subtitle'  => esc_html__('Pick body background color for dark mode', 'synthai'),
+                'default'   => '#171717',
+                'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'dark'),
+            ),
+
+            array(
+                'id'        => 'input_bg_color',
+                'type'      => 'color',
+                'title'     => esc_html__('Input Background Color', 'synthai'),
+                'subtitle'  => esc_html__('Pick background color', 'synthai'),
+                'default'   => '#f2f2f2',
+                'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'light'),
+            ),
+
+            array(
+                'id'        => 'input_bg_color_dark',
+                'type'      => 'color',
+                'title'     => esc_html__('Input Background Color (Dark)', 'synthai'),
+                'subtitle'  => esc_html__('Pick background color for dark mode', 'synthai'),
+                'default'   => '#242424',
+                'validate'  => 'color',
+                'required'  => array('theme_mode', '=', 'dark'), 
             ),
 
         )
@@ -350,7 +443,7 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Hover Background', 'synthai'),
                 'subtitle'  => esc_html__('Pick color', 'synthai'),
-                'default'   => '#3A6BB6',
+                'default'   => '#242424',
                 'validate'  => 'color',
                 'output'    => array('')
 
@@ -388,7 +481,7 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Background Color', 'synthai'),
                 'subtitle'  => esc_html__('Pick color', 'synthai'),
-                'default'   => '#3A6BB6',
+                'default'   => '#242424',
                 'validate'  => 'color',
                 'output'    => array('')
             ),
@@ -461,7 +554,16 @@ Redux::setSection(
                 'type'      => 'color',
                 'title'     => esc_html__('Background Bg Color', 'synthai'),
                 'subtitle'  => esc_html__('Pick color', 'synthai'),
-                'default'   => '#242424',
+                'default'   => '#ffffff',
+                'validate'  => 'color',
+            ),
+
+            array(
+                'id'        => 'breadcrumb_bg_color_dark',
+                'type'      => 'color',
+                'title'     => esc_html__('Background Bg Color (Dark)', 'synthai'),
+                'subtitle'  => esc_html__('Pick color', 'synthai'),
+                'default'   => '#121212',
                 'validate'  => 'color',
             ),
 

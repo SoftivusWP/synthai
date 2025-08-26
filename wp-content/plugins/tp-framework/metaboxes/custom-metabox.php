@@ -213,7 +213,7 @@ function tp_register_header_metabox() {
 		'desc'    => esc_html__( 'chosse your background', 'tp-framework' ),
 		'id'      => 'primary-colors',		
 		'type'    => 'colorpicker',
-		'default' => '#121212',
+		
 	) );
 
 	$cmb_demo->add_field( array(

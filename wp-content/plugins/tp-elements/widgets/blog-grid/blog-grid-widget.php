@@ -1129,6 +1129,105 @@ class Themephi_Elementor_Blog_Grid_Widget extends \Elementor\Widget_Base {
 		$this->end_controls_tab();
 		$this->end_controls_tabs();
 
+        
+        $this->add_control(
+			'additional_separator_decoration_meta',
+			[
+				'label' => esc_html__( 'Decoration Settings', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+                
+        $this->add_control(
+            'enable_decoration_meta',
+            [
+                'label'         => esc_html__('Enable Decoration ?', 'tp-elements'),
+                'type'          => Controls_Manager::SWITCHER,
+                'default'       => '',
+                'return_value'  => 'on',
+                'label_off'     => esc_html__('No', 'tp-elements'),
+                'label_on'      => esc_html__('Yes', 'tp-elements'),
+
+            ]
+        );
+
+        $this->add_control(
+            'add_decoration_meta',
+            [
+                'label'         => esc_html__('Select Decoration', 'tp-elements'),
+                'type' => \Elementor\Controls_Manager::SELECT2,
+                'multiple' => true,
+				'options' => [
+					'border-top-left' => esc_html__( 'Top Left', 'tp-elements' ),
+					'border-top-right'  => esc_html__( 'Top Right', 'tp-elements' ),
+					'border-bottom-left' => esc_html__( 'Bottom Left', 'tp-elements' ),
+					'border-bottom-right' => esc_html__( 'Bottom Right', 'tp-elements' ),
+                    'inside-border-top-left' => esc_html__( 'Inside Top Left', 'tp-elements' ),
+                    'inside-border-top-right' => esc_html__( 'Inside Top Right', 'tp-elements' ),
+					'inside-border-bottom-right' => esc_html__( 'Inside Bottom Right', 'tp-elements' ),
+					'inside-border-bottom-left' => esc_html__( 'Inside Bottom Left', 'tp-elements' ),
+                ],
+                'separator'     => 'before',
+                'condition' => [ 
+                    'enable_decoration_meta' => 'on'
+                 ],
+            ]
+        );
+
+        
+		$this->add_control(
+			'box_shadow_offset_y_meta',
+			[
+				'label' => esc_html__( 'Box Shadow Offset Y', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px'],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 300,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => 'px',
+					'size' => 20,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .tp-border-decoration-meta-border-bottom-left, {{WRAPPER}} .tp-border-decoration-meta-border-bottom-right, {{WRAPPER}} .tp-border-decoration-meta-border-top-left, {{WRAPPER}} .tp-border-decoration-meta-border-top-right, {{WRAPPER}} .tp-border-decoration-meta-inside-border-bottom-left, {{WRAPPER}} .tp-border-decoration-meta-inside-border-bottom-right, {{WRAPPER}} .tp-border-decoration-meta-inside-border-top-left, {{WRAPPER}} .tp-border-decoration-meta-inside-border-top-right' => '--box-shadow-offset-y: {{SIZE}}{{UNIT}};',
+				],
+                'condition' => [ 
+                    'enable_decoration_meta' => 'on'
+                ],
+			]
+		);
+
+        $this->add_control(
+            'decoration_color_meta',
+            [
+                'label' => esc_html__('Decoration Color', 'tp-elements'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .tp-border-decoration-meta-border-bottom-left, {{WRAPPER}} .tp-border-decoration-meta-border-bottom-right, {{WRAPPER}} .tp-border-decoration-meta-border-top-left, {{WRAPPER}} .tp-border-decoration-meta-border-top-right, {{WRAPPER}} .tp-border-decoration-meta-inside-border-bottom-left, {{WRAPPER}} .tp-border-decoration-meta-inside-border-bottom-right, {{WRAPPER}} .tp-border-decoration-meta-inside-border-top-left, {{WRAPPER}} .tp-border-decoration-meta-inside-border-top-right' => '--box-shadow-color: {{VALUE}};'
+                ],
+                'condition' => [ 
+                    'enable_decoration_meta' => 'on'
+                ],
+            ]
+        );
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Border::get_type(),
+			[
+				'name' => 'decoration_border_meta',
+				'selector' => '{{WRAPPER}} .tp-border-decoration-meta-border-bottom-left, {{WRAPPER}} .tp-border-decoration-meta-border-bottom-right, {{WRAPPER}} .tp-border-decoration-meta-border-top-left, {{WRAPPER}} .tp-border-decoration-meta-border-top-right, {{WRAPPER}} .tp-border-decoration-meta-inside-border-bottom-left, {{WRAPPER}} .tp-border-decoration-meta-inside-border-bottom-right, {{WRAPPER}} .tp-border-decoration-meta-inside-border-top-left, {{WRAPPER}} .tp-border-decoration-meta-inside-border-top-right',
+                'condition' => [ 
+                    'enable_decoration_meta' => 'on'
+                ],
+			]
+		);
+
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -2211,6 +2310,144 @@ class Themephi_Elementor_Blog_Grid_Widget extends \Elementor\Widget_Base {
         }
         /* Icon Settings End */
         ?>
+
+        <style>
+            
+        /*  Decoration Style  */
+        .tp-border-decoration-meta-border-bottom-left {
+            position: absolute;
+            right: 100%;
+            bottom: 0;
+            border-top-right-radius: 0px;
+            background-color: transparent;
+            z-index: 3;
+            content: "";
+            width: 20px;
+            height: 40px;
+            border-bottom-right-radius: 20px;
+            --box-shadow-color: #7c2626;
+            --box-shadow-offset-y: 20px;
+            box-shadow: 0 var(--box-shadow-offset-y) 0 0 var(--box-shadow-color);
+        }
+        .tp-border-decoration-meta-border-bottom-right { 
+            position: absolute;
+            left: 100%;
+            bottom: 0;
+            border-top-right-radius: 0px;
+            background-color: transparent;
+            z-index: 3;
+            content: "";
+            width: 20px;
+            height: 40px;
+            border-bottom-left-radius: 20px;
+            --box-shadow-color: #7c2626;
+            --box-shadow-offset-y: 20px;
+            box-shadow: 0 var(--box-shadow-offset-y) 0 0 var(--box-shadow-color);
+        }
+        .tp-border-decoration-meta-border-top-left {
+            position: absolute;
+            right: 100%;
+            top: 0;
+            border-top-right-radius: 0px;
+            background-color: transparent;
+            z-index: 3;
+            content: "";
+            width: 20px;
+            height: 40px;
+            border-bottom-left-radius: 20px;
+            --box-shadow-color: #7c2626;
+            --box-shadow-offset-y: 20px;
+            box-shadow: 0 var(--box-shadow-offset-y) 0 0 var(--box-shadow-color);
+            transform: rotate(180deg);
+        }
+        .tp-border-decoration-meta-border-top-right {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            border-top-right-radius: 0px;
+            background-color: transparent;
+            z-index: 3;
+            content: "";
+            width: 20px;
+            height: 40px;
+            border-bottom-right-radius: 20px;
+            --box-shadow-color: #7c2626;
+            --box-shadow-offset-y: 20px;
+            box-shadow: 0 var(--box-shadow-offset-y) 0 0 var(--box-shadow-color);
+            transform: rotate(180deg);
+        }  
+        .tp-border-decoration-meta-inside-border-top-right {
+            position: absolute;
+            left: calc(100% - 20px);
+            top: auto;
+            background-color: transparent;
+            z-index: 3;
+            content: "";
+            width: 20px;
+            height: 40px;
+            border-bottom-right-radius: 20px;
+            --box-shadow-color: #7c2626;
+            --box-shadow-offset-y: 20px;
+            box-shadow: 0 var(--box-shadow-offset-y) 0 0 var(--box-shadow-color);
+            transform: rotate(0deg);
+            bottom: 100%;
+        }
+        .tp-border-decoration-meta-inside-border-top-left { 
+            transform: rotate(-360deg);
+            left: 0;
+            top: auto;
+            bottom: 100%;
+            position: absolute;
+            right: 100%;
+            border-top-right-radius: 0px;
+            background-color: transparent;
+            z-index: 3;
+            content: "";
+            width: 20px;
+            height: 40px;
+            border-bottom-left-radius: 20px;
+            --box-shadow-color: #7c2626;
+            --box-shadow-offset-y: 20px;
+            box-shadow: 0 var(--box-shadow-offset-y) 0 0 var(--box-shadow-color);
+        }
+        .tp-border-decoration-meta-inside-border-bottom-right { 
+            position: absolute;
+            left: calc(100% - 20px);
+            bottom: auto;
+            border-top-right-radius: 0px;
+            background-color: transparent;
+            z-index: 3;
+            content: "";
+            width: 20px;
+            height: 40px;
+            border-bottom-left-radius: 20px;
+            --box-shadow-color: #7c2626;
+            --box-shadow-offset-y: 20px;
+            box-shadow: 0 var(--box-shadow-offset-y) 0 0 var(--box-shadow-color);
+            transform: rotate(-180deg);
+            top: 100%;
+        }
+        .tp-border-decoration-meta-inside-border-bottom-left {
+            position: absolute;
+            border-top-right-radius: 0px;
+            background-color: transparent;
+            z-index: 3;
+            content: "";
+            width: 20px;
+            height: 40px;
+            border-bottom-right-radius: 20px;
+            --box-shadow-color: #7c2626;
+            --box-shadow-offset-y: 20px;
+            box-shadow: 0 var(--box-shadow-offset-y) 0 0 var(--box-shadow-color);
+            transform: rotate(180deg);
+            top: 100%;
+            left: auto;
+            right: calc(100% - 20px);
+
+        }
+
+
+        </style>
 
 		<div class="themephi-blog-grid2x themephi-blog-grid<?php echo esc_attr( $styleClass);?>">            
 

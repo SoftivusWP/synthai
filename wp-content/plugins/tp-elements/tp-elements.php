@@ -21,6 +21,7 @@ require TPELEMENTS_DIR_PATH_PRO . 'inc/custom-tp-icon.php';
 require TPELEMENTS_DIR_PATH_PRO . 'widget-option/admin-init.php';
 require TPELEMENTS_DIR_PATH_PRO . 'themephi-header-footer-elementor/themephi-header-footer-elementor.php';
 
+
 function hyperai_mime_types($mimes) {
 	$mimes['svg'] = 'image/svg+xml';
 	$mimes['svgz'] = 'image/svg+xml';
