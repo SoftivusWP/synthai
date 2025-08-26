@@ -171,49 +171,7 @@ function synthai_import_files() {
 
 add_filter( 'pt-ocdi/import_files', 'synthai_import_files' );
 
-// function synthai_after_import_setup($selected_import) {
-//   // Assign menus to their locations.
-// 	$main_menu     = get_term_by( 'name', 'Primary Menu', 'nav_menu' );
-//   $menu_single     = get_term_by( 'name', 'Onepage Menu', 'nav_menu' );
-// 	set_theme_mod( 'nav_menu_locations', array(
-//       'menu-1' => $main_menu->term_id, 
-//       'menu-2' => $menu_single->term_id,      
-//     )
-//   );
-//   if ( 'Synthai Default Demo' == $selected_import['import_file_name'] ) {
 
-//     $front_page_id = get_page_by_title('Main Home');
-
-//   }
-
-//   $blog_page_id  = get_page_by_title( 'News & Media' );
-
-//   update_option('show_on_front', 'page');
-//   update_option('page_on_front', $front_page_id->ID ?? 0);
-//   update_option('page_for_posts', $blog_page_id->ID ?? 0);
-
-//   // Elementor settings fix — enable all CPTs
-//   $cpts = get_post_types(array('public' => true), 'names');
-//   update_option('elementor_cpt_support', array_values($cpts));
-//   update_option('elementor_disable_color_schemes', 'yes');
-//   update_option('elementor_disable_typography_schemes', 'yes');
-
-//   // Revolution Slider import
-//   if (class_exists('RevSlider')) {
-//       $slider_array = array(
-//           get_template_directory() . "/inc/demo-data/sliders/healthy-slider.zip",
-//           get_template_directory() . "/inc/demo-data/sliders/swimming-slider.zip",
-//       );
-//       $slider = new RevSlider();
-//       foreach ($slider_array as $filepath) {
-//           if (file_exists($filepath)) {
-//               $slider->importSliderFromPost(true, true, $filepath);
-//           }
-//       }
-//   }
-  
-// }
-// add_action( 'pt-ocdi/after_import', 'synthai_after_import_setup' );
 
 
 function synthai_after_import_setup($selected_import) {
